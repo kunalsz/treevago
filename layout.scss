@@ -1,0 +1,355 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+//HEADER-------------------
+
+.header{
+    display: flex;
+    background-color: $color-grey-dark;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-grey-light;
+    overflow: hidden;
+
+    .logo{
+        margin-left: 2rem;
+        display: flex;
+        align-items: flex-end;
+        &-img{
+            height: 5.5rem;
+            width: 5.5rem;
+        }
+        &-text{
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 300;
+            border-bottom: 2px solid white;
+            margin-bottom: .3rem;
+        }
+
+        @include res($break-500){
+            margin-left: 1.5rem;
+
+            &-img{
+                height: 4.5rem;
+                width: 4.5rem;
+            }
+        }
+    }
+
+    .form{
+        display: flex;
+        flex: 0 0 40%;
+        justify-content: center;
+        align-items: center;
+
+        .search{
+            width: 90%;
+            outline: none;
+            border: none;
+            border-radius: 100px;
+            background-color:$color-grey-light;
+            padding: 1rem 3rem;
+            transition: width .4s ease-in;
+            font-size: 1.4rem;
+            
+            &:focus{
+                width: 100%;
+            }
+
+            @include res($break-500){
+                width: 100%;
+            }
+        }
+        .search-icon{
+            cursor: pointer;
+            width: 3rem;
+            height: 3rem;
+            fill: $color-grey-dark;
+            transform: translateX(-4rem);
+        }
+
+        @include res($break-500){
+            margin-left: 1rem;
+            flex: 0 0 100%;
+            order: 1;
+        }
+    }
+
+    .user{
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+        &-bookmark{
+            position: relative;
+            .bookmark-icon{
+                height: 4rem;
+                width: 4rem;
+                fill: rgb(233, 226, 226);
+            }
+            .bookmark-num{
+                position: absolute;
+                top: -1rem;
+                right: 0;
+                background-color: red;
+                padding: 1rem;
+                clip-path: circle(30% at 50% 50%);
+                font-size: 1.4rem;
+            }
+
+            &:hover{
+                background-color: $color-grey-light;
+
+                .bookmark-icon{
+                    fill: $color-grey-dark;
+                }
+            }
+        }
+
+        &-user{
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+            &_img{
+                height: 5rem;
+                width: 5rem;
+                clip-path: circle(50% at 50% 50%);
+            }
+            &_name{
+                color: white;
+                font-size: 1.8rem; 
+                font-weight: 500;
+            }
+        }
+    }
+
+    @include res($break-500){
+        height: 12rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-around;
+    }
+}
+
+//MAIN-------------------------------
+
+.main{
+    display: flex;
+    overflow: hidden;
+
+    @include res($break-600){
+        flex-direction: column;
+    }
+}
+
+//NAV----------------
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $color-grey-dark-2;
+    flex: 0 0 18%;
+}
+
+.nav-list{
+    list-style: none;
+
+    @include res($break-600){
+        display: flex;
+    }
+
+    @include res($break-400){
+        flex-wrap: wrap;
+    }
+}
+
+.nav-item{
+    position: relative;
+    margin-top: 1rem;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: 0;
+        width: 3px;
+        transform: scaleY(0);
+        background-color: $color-pink;
+        transition: transform .3s,width .3s cubic-bezier(1,0,0,1) .3s;
+    }
+
+    &:hover::before{
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    @include res($break-600){
+        display: flex;
+        margin: 0;
+        flex: 1;
+    }
+}
+
+.nav-link{
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    text-decoration: none;
+    position: relative;
+    z-index: 5;
+
+    @include res($break-600){
+        margin: 0;
+    }
+}
+
+.nav-icon{
+    width: 3rem;
+    height: 3rem;
+    fill: white;
+
+    @include res($break-500){
+        width: 2.4em;
+        height: 2.4rem;
+    }
+
+    @include res($break-400){
+        width: 2em;
+        height: 2rem;
+    }
+}
+
+.nav-text{
+    margin-left: 0.8rem;
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+
+    @include res($break-500){
+        margin-left: 0.4rem;
+        font-size: 1.4rem;
+    }
+
+    @include res($break-400){
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+//HOTELS-----------------
+
+.hotels{
+    background-color: rgb(207, 202, 202);
+    flex: 1;
+}
+
+.hotel-contain{
+    display: flex;
+    padding: 3rem;
+    flex-wrap: wrap;
+
+    @include res($break-900){
+        padding: 2rem;
+    }
+
+    @include res($break-600){
+        justify-content: center;
+    }
+}
+
+.btn-more{
+    align-self: flex-end;
+    padding: 1rem;
+    background-color: $color-pink;
+    font-size: 1.4rem;
+    color: white;
+
+    outline: none;
+    border: none;
+    transition: all .2s ease ;
+
+    &:hover{
+        outline: none;
+        border: none;
+        animation: scale 1s infinite;
+    }
+}
+
+@keyframes scale{
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+}
+
+///////HOTEL TAJ-----------------------
+.hotel-info{
+    padding: 3rem;
+
+    @include res($break-500){
+        padding: 2rem;
+    }
+}
+
+.hotel-back{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    background-image: linear-gradient(to right bottom,rgba($color-pink,0.4),rgba(255, 0, 0, 0.4)),url('./assets/hotel-1.jpg');
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
+    margin-bottom: 2rem;
+
+}
+
+.hotel-bookmark-icon{
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 4rem;
+    width: 4rem;
+    fill: white;
+    transition: all .2s ease;
+
+    &:hover{
+        animation: scale 1s infinite;
+    }
+}
+
+.hotel-name{
+    font-size: 5rem;
+    color: white;
+    border-bottom: 2px solid white;
+    font-weight: 600;
+    transition: all .2s ease;
+
+    &:hover{
+        transform: skewY(-7deg);
+    }
+}
+
+//COPY-----------------
+.copy{
+    color: $color-grey-light;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include res($break-600){
+        display: none;
+    }
+}

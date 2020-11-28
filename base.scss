@@ -1,0 +1,86 @@
+$color-grey-light :  rgb(228, 218, 218);
+$color-grey-dark : rgb(87, 74, 74);
+$color-grey-dark-2: #333;
+$color-pink:#eb2f64;
+
+$break-1000 : 62.5em;
+$break-900 : 56.25em;
+$break-700: 43.75em;
+$break-600 : 37.5em;
+$break-500 : 31.25em;
+$break-400:25em;
+
+
+//MIXIN
+
+@mixin res($break){
+    @if $break == $break-1000 {
+        @media(max-width:$break-1000) {
+            @content;
+        }
+    }
+
+    @if $break == $break-900 {
+        @media(max-width:$break-900) {
+            @content;
+        }
+    }
+
+    @if $break == $break-700 {
+        @media(max-width:$break-700) {
+            @content;
+        }
+    }
+
+    @if $break == $break-600 {
+        @media(max-width:$break-600) {
+            @content;
+        }
+    }
+
+    @if $break == $break-500 {
+        @media(max-width:$break-500) {
+            @content;
+        }
+    }
+
+    @if $break == $break-400 {
+        @media(max-width:$break-400) {
+            @content;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    box-sizing: border-box;
+    padding: 1.5rem;
+    background-color: $color-pink;
+
+    @include res($break-500){
+        padding: 0;
+    }
+}
+

@@ -1,0 +1,217 @@
+.hotel{
+    text-decoration: none;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all .3s ease;
+
+    @include res($break-900){
+        margin-right: 1.5rem;
+    }
+
+    &-fig{
+        position: relative;
+    }
+
+    &-bookmark{
+        display: none;
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+
+        fill: $color-pink;
+        transition: all .3s ease;
+    }
+
+    &-img{
+        height:20rem;
+        transition: all .3s ease;
+
+        @include res($break-1000){
+            height: 18rem;
+        }
+
+        @include res($break-600){
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    &-cap{
+        display: none;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+        font-size: 2rem;
+        border-bottom: 2px solid $color-grey-light;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        transition: all .3s ease;
+    }
+
+    &:hover{
+        transition: all .3s ease;
+        .hotel-cap{
+            display: initial;
+        }
+
+        .hotel-img{
+            filter: blur(10px);
+        }
+
+        .hotel-bookmark{
+            display: initial;
+        }
+    }
+}
+
+.hotel-taj{
+    flex: 1;
+    background-color: #cfcaca;
+}
+
+.hotel-info-down{
+    display: flex;
+
+    @include res($break-700){
+        flex-direction: column;
+    }
+}
+
+//FACILITES----------
+.facilities{
+    margin-right: auto;
+}
+
+.fac-list{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+}
+
+.fac-item{
+    width: 50%;
+    font-size: 1.8rem;
+
+    &::before{
+        content: "";
+        display: inline-block;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: $color-pink;
+        -webkit-mask-image: url('./assets/icons/list.svg');
+        -webkit-mask-size: cover;
+    }
+}
+
+.fac-head{
+    display: block;
+    font-size: 3rem;
+    color: $color-grey-dark-2;
+}
+
+//REVIEWS---------------------------
+
+.review{
+    display: flex;
+    align-items: center;
+    background-color: $color-grey-light;
+    margin-bottom: 1rem;
+
+    &-person{
+        position: relative;
+
+        &:hover{
+            transition: all .2s ease;
+            .review-fig-text{
+                display: initial;
+            }
+            .review-img{
+                filter: blur(5px);
+            }
+        }
+    }
+    &-img{
+        height: 8rem;
+        width: 8rem;
+        clip-path: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+    }
+    &-fig-text{
+        display:none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 1.4rem;
+        transition: all .2s ease;
+    }
+    &-text{
+        font-size: 1.4rem;
+    }
+}
+
+
+//BUTTON------------------------
+
+.center{
+    text-align: center;
+}
+
+.book-btn{
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    border-radius: 100px;
+    background-image: linear-gradient(to right bottom,$color-pink,rgb(206, 113, 113));
+    font-size: 1.4rem;
+    transition: all .1s ease;
+
+    .visible{
+        display: block;
+        height: 100%;
+        width: 100%;
+        transition: all .1s ease;
+    }
+    .invisible{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: -100%;
+        left: 0;
+        display: block;
+        visibility: hidden;
+        transition: all .1s ease;
+    }
+
+    &:hover{
+        transition: all .1s ease;
+        .visible{
+            transform: translateY(100%);
+            visibility: hidden;
+        }
+        .invisible{
+            visibility: initial;
+            top: 0;
+        }
+    }
+}
+
+.btn-back{
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: black;
+    transition: all .2s ease;
+
+    &:hover{
+        border-bottom: 2px solid black;
+    }
+}
